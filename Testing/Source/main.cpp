@@ -1,8 +1,12 @@
 #include "Core/NebulaEngine.h"
 
+#include "Core/Application.h"
+
 int main(int argc, char* argv[])
 {
-	Nebula::GEngine->Initialize();
+	Nebula::GEngine->Initialize(argc, argv);
+
+	Nebula::GEngine->CreateApplication<Nebula::Application>("Hello", 640, 480, 0);
 
 	while(Nebula::GEngine->IsRunning())
 	{
