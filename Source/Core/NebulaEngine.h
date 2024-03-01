@@ -2,6 +2,8 @@
 
 #include <string>
 
+#include "Window.h"
+
 namespace Nebula
 {
 
@@ -13,19 +15,22 @@ namespace Nebula
     public:
 
         //TODO - Store and Retrieve ArgC and ArgV elsewhere.
-        void Initialize(int ArgC, char* ArgV[]);
+        bool Initialize(int ArgC, char* ArgV[]);
         void Update();
         void Shutdown();
 
         template<typename T>
-        T* CreateApplication(const std::string& WindowTitle, int Width, int Height, int Flags /* Change to WindowFlag int typedef */)
+        T* CreateApplication(const std::string& WindowTitle, int Width, int Height, EWindowFlags Flags)
         {
-
             //  The input type is not derived from Nebula::Application.
             static_assert(std::is_base_of_v<Application, T>, "T must be a derived class of Nebula::Application.");
 
             T* NewApplication = new T();
             m_Application = NewApplication;
+
+            NewApplication->Initialize();
+
+            Window::CreateWindow(WindowTitle, Width, Height, Flags);
 
             return NewApplication;
         }

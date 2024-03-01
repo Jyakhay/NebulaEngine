@@ -9,14 +9,24 @@
 namespace Nebula
 {
 
-    void NebulaEngine::Initialize(int ArgC, char* ArgV[])
+    bool NebulaEngine::Initialize(int ArgC, char* ArgV[])
     {
 
         NEBULA_LOG(ELogSeverity::Neutral, "Initializing Engine...")
 
         FileSystem::m_ExecutablePath = ArgV[0];
 
-        glfwInit();
+        NEBULA_LOG(ELogSeverity::Neutral, "Initializing glfw.")
+        if(!glfwInit())
+        {
+            const char* InitError;
+            glfwGetError(&InitError);
+
+            NEBULA_LOG(ELogSeverity::Error, "Failed to initialize glfw: {}", InitError)
+        	return false;
+        }
+
+        return true;
 
     }
 
@@ -48,6 +58,7 @@ namespace Nebula
 
     void NebulaEngine::Shutdown()
     {
+        NEBULA_LOG(ELogSeverity::Neutral, "Engine shutting down...")
         Logger::ExportLog();
     }
 

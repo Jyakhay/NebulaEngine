@@ -14,7 +14,7 @@ namespace Nebula
 
 	void Application::Render(float DeltaTime)
 	{
-		for (int i = m_Windows.size() - 1; i >= 0 && !m_Windows.empty(); i--)
+		for (int i = static_cast<int>(m_Windows.size()) - 1; i >= 0 && !m_Windows.empty(); i--)
 		{
 			if (m_Windows[i]->IsPendingClose())
 			{

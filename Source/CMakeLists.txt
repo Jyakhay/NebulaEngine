@@ -14,9 +14,12 @@ set(NEBULA_ENGINE_CORE_SOURCES
     "Core/Window.h"
 )
 
+#Add source files in Graphics directory
 set(NEBULA_ENGINE_GRAPHICS_SOURCES
     "Graphics/GraphicsContext.cpp"
     "Graphics/GraphicsContext.h"
+    "Graphics/Renderer.cpp"
+    "Graphics/Renderer.h"
 )
 
 #Add source files in Debug directory
@@ -29,6 +32,14 @@ set(NEBULA_ENGINE_DEBUG_SOURCES
 set(NEBULA_ENGINE_PLATFORM_SOURCES
     "Platform/FileSystem.cpp"
     "Platform/FileSystem.h"
+)
+
+#Add source files in Math directory
+set(NEBULA_ENGINE_PLATFORM_SOURCES
+    "Math/Color.cpp"
+    "Math/Color.h"
+    "Math/Vector.cpp"
+    "Math/Vector.h"
 )
 
 #Add source files in Utility directory
