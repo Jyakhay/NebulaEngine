@@ -1,7 +1,6 @@
 #include "Logger.h"
 
 #include <filesystem>
-#include <iostream>
 
 #include <fstream>
 

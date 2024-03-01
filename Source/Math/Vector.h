@@ -1,6 +1,8 @@
 #pragma once
 
 #include <cmath>
+#include <format>
+#include <string>
 
 namespace Nebula
 {
@@ -24,7 +26,7 @@ namespace Nebula
 
 		//Functions
 
-		float Magnitude()
+		float Magnitude() const
 		{
 			return sqrt(X*X + Y*Y + Z*Z + W*W);
 		}
@@ -47,44 +49,49 @@ namespace Nebula
 			return NewVector;
 		}
 
+		std::string ToString() const
+		{
+			return std::format("X: {}, Y: {}, Z: {}, W: {}", X, Y, Z, W);
+		}
+
 		//Operators
 
-		Vector4D operator+(const Vector4D& Other)
+		Vector4D operator+(const Vector4D& Other) const
 		{
 			return Vector4D(X + Other.X, Y + Other.Y, Z + Other.Z, W + Other.W);
 		}
 
-		Vector4D operator+(float V)
+		Vector4D operator+(float V) const
 		{
 			return Vector4D(X + V, Y + V, Z + V, W + V);
 		}
 
-		Vector4D operator-(const Vector4D& Other)
+		Vector4D operator-(const Vector4D& Other) const
 		{
 			return Vector4D(X - Other.X, Y - Other.Y, Z - Other.Z, W - Other.W);
 		}
 
-		Vector4D operator-(float V)
+		Vector4D operator-(float V) const
 		{
 			return Vector4D(X - V, Y - V, Z - V, W - V);
 		}
 
-		Vector4D operator*(const Vector4D& Other)
+		Vector4D operator*(const Vector4D& Other) const
 		{
 			return Vector4D(X * Other.X, Y * Other.Y, Z * Other.Z, W * Other.W);
 		}
 
-		Vector4D operator*(float V)
+		Vector4D operator*(float V) const
 		{
 			return Vector4D(X * V, Y * V, Z * V, W * V);
 		}
 
-		Vector4D operator/(const Vector4D& Other)
+		Vector4D operator/(const Vector4D& Other) const
 		{
 			return Vector4D(X / Other.X, Y / Other.Y, Z / Other.Z, W / Other.W);
 		}
 
-		Vector4D operator/(float V)
+		Vector4D operator/(float V) const
 		{
 			return Vector4D(X / V, Y / V, Z / V, W / V);
 		}
@@ -186,7 +193,7 @@ namespace Nebula
 
 		//Functions
 
-		float Magnitude()
+		float Magnitude() const
 		{
 			return sqrt(X * X + Y * Y + Z * Z);
 		}
@@ -208,44 +215,49 @@ namespace Nebula
 			return NewVector;
 		}
 
+		std::string ToString() const
+		{
+			return std::format("X: {}, Y: {}, Z: {}", X, Y, Z);
+		}
+
 		//Operators
 
-		Vector3D operator+(const Vector3D& Other)
+		Vector3D operator+(const Vector3D& Other) const
 		{
 			return Vector3D(X + Other.X, Y + Other.Y, Z + Other.Z);
 		}
 
-		Vector3D operator+(float V)
+		Vector3D operator+(float V) const
 		{
 			return Vector3D(X + V, Y + V, Z + V);
 		}
 
-		Vector3D operator-(const Vector3D& Other)
+		Vector3D operator-(const Vector3D& Other) const
 		{
 			return Vector3D(X - Other.X, Y - Other.Y, Z - Other.Z);
 		}
 
-		Vector3D operator-(float V)
+		Vector3D operator-(float V) const
 		{
 			return Vector3D(X - V, Y - V, Z - V);
 		}
 
-		Vector3D operator*(const Vector3D& Other)
+		Vector3D operator*(const Vector3D& Other) const
 		{
 			return Vector3D(X * Other.X, Y * Other.Y, Z * Other.Z);
 		}
 
-		Vector3D operator*(float V)
+		Vector3D operator*(float V) const
 		{
 			return Vector3D(X * V, Y * V, Z * V);
 		}
 
-		Vector3D operator/(const Vector3D& Other)
+		Vector3D operator/(const Vector3D& Other) const
 		{
 			return Vector3D(X / Other.X, Y / Other.Y, Z / Other.Z);
 		}
 
-		Vector3D operator/(float V)
+		Vector3D operator/(float V) const
 		{
 			return Vector3D(X / V, Y / V, Z / V);
 		}
@@ -338,7 +350,7 @@ namespace Nebula
 
 		//Functions
 
-		float Magnitude()
+		float Magnitude() const
 		{
 			return sqrt(X * X + Y * Y);
 		}
@@ -359,44 +371,49 @@ namespace Nebula
 			return NewVector;
 		}
 
+		std::string ToString() const
+		{
+			return std::format("X: {}, Y: {}", X, Y);
+		}
+
 		//Operators
 
-		Vector2D operator+(const Vector2D& Other)
+		Vector2D operator+(const Vector2D& Other) const
 		{
 			return Vector2D(X + Other.X, Y + Other.Y);
 		}
 
-		Vector2D operator+(float V)
+		Vector2D operator+(float V) const
 		{
 			return Vector2D(X + V, Y + V);
 		}
 
-		Vector2D operator-(const Vector2D& Other)
+		Vector2D operator-(const Vector2D& Other) const
 		{
 			return Vector2D(X - Other.X, Y - Other.Y);
 		}
 
-		Vector2D operator-(float V)
+		Vector2D operator-(float V) const
 		{
 			return Vector2D(X - V, Y - V);
 		}
 
-		Vector2D operator*(const Vector2D& Other)
+		Vector2D operator*(const Vector2D& Other) const
 		{
 			return Vector2D(X * Other.X, Y * Other.Y);
 		}
 
-		Vector2D operator*(float V)
+		Vector2D operator*(float V) const
 		{
 			return Vector2D(X * V, Y * V);
 		}
 
-		Vector2D operator/(const Vector2D& Other)
+		Vector2D operator/(const Vector2D& Other) const
 		{
 			return Vector2D(X / Other.X, Y / Other.Y);
 		}
 
-		Vector2D operator/(float V)
+		Vector2D operator/(float V) const
 		{
 			return Vector2D(X / V, Y / V);
 		}

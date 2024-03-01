@@ -1,6 +1,7 @@
 #include "Application.h"
 
 #include "Graphics/GraphicsContext.h"
+#include "Graphics/Renderer.h"
 
 namespace Nebula
 {
@@ -24,6 +25,8 @@ namespace Nebula
 
 			m_Windows[i]->SwapBuffers();
 		}
+
+		Renderer::Clear();
 	}
 
 	void Application::Shutdown()
