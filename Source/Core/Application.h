@@ -1,5 +1,8 @@
 #pragma once
 #include <string>
+#include <vector>
+
+#include "Window.h"
 
 namespace Nebula
 {
@@ -11,6 +14,7 @@ namespace Nebula
 
 		virtual void Initialize();
 		virtual void Update(float DeltaTime);
+		virtual void Render(float DeltaTime);
 		virtual void Shutdown();
 
 		virtual bool IsRunning() const;
@@ -21,12 +25,14 @@ namespace Nebula
 	private:
 
 		std::string m_Name = "NebulaEngine";
+		std::vector<Window*> m_Windows;
 
 		Application();
 		~Application();
 
 		//Only allow engine class to access constructor and destructor.
 		friend class NebulaEngine;
+		friend struct GraphicsContext;
 
 	};
 	

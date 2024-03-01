@@ -10,6 +10,13 @@ set(NEBULA_ENGINE_CORE_SOURCES
     "Core/NebulaEngine.h"
     "Core/Application.cpp"
     "Core/Application.h"
+    "Core/Window.cpp"
+    "Core/Window.h"
+)
+
+set(NEBULA_ENGINE_GRAPHICS_SOURCES
+    "Graphics/GraphicsContext.cpp"
+    "Graphics/GraphicsContext.h"
 )
 
 #Add source files in Debug directory
@@ -40,6 +47,7 @@ set(NEBULA_ENGINE_THIRD_PARTY_SOURCES
 #Set all source files of engine
 set(NEBULA_ENGINE_SOURCES
     ${NEBULA_ENGINE_CORE_SOURCES}
+    ${NEBULA_ENGINE_GRAPHICS_SOURCES}
     ${NEBULA_ENGINE_THIRD_PARTY_SOURCES}
     ${NEBULA_ENGINE_DEBUG_SOURCES}
     ${NEBULA_ENGINE_UTILITY_SOURCES}

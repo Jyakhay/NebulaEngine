@@ -22,7 +22,7 @@ namespace Nebula
         {
 
             //  The input type is not derived from Nebula::Application.
-            static_assert(std::is_base_of<Application, T>::value, "T must be a derived class of Nebula::Application.");
+            static_assert(std::is_base_of_v<Application, T>, "T must be a derived class of Nebula::Application.");
 
             T* NewApplication = new T();
             m_Application = NewApplication;
@@ -38,6 +38,11 @@ namespace Nebula
         bool IsRunning();
 
     private:
+
+        float m_GameDeltaTime = 0.0f;
+        float m_GameRunTime = 0.0f;
+        float m_EngineDeltaTime = 0.0f;
+        float m_FPS = 120.0f;
 
         Application* m_Application = nullptr;
 

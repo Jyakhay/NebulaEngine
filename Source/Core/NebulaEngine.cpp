@@ -4,6 +4,8 @@
 #include "Debug/Logger.h"
 #include "Platform/FileSystem.h"
 
+#include <GLFW/glfw3.h>
+
 namespace Nebula
 {
 
@@ -14,17 +16,33 @@ namespace Nebula
 
         FileSystem::m_ExecutablePath = ArgV[0];
 
+        glfwInit();
+
     }
 
     void NebulaEngine::Update()
     {
 
-        // Setup FPS limiting and DeltaTime
+        m_GameDeltaTime += m_EngineDeltaTime;
+        const auto FrameStart = static_cast<float>(glfwGetTime());
 
-        if(m_Application)
+        glfwPollEvents();
+
+        if (m_GameDeltaTime >= 1.0f / m_FPS)
         {
-            m_Application->Update(0.0f);
+            if (m_Application)
+            {
+                m_Application->Update(m_GameDeltaTime);
+                m_Application->Render(m_GameDeltaTime);
+
+                m_GameRunTime += m_GameDeltaTime;
+            }
+
+            m_GameDeltaTime = 0.0f;
         }
+
+        const auto FrameEnd = static_cast<float>(glfwGetTime());
+        m_EngineDeltaTime = FrameEnd - FrameStart;
 
     }
 
